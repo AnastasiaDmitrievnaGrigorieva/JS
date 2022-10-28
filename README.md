@@ -1,1 +1,1 @@
-# JS freeCodeCamp задачи
+# codewars задачи
