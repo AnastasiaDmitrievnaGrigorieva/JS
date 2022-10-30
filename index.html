@@ -10,27 +10,36 @@
 <body>
 <script>
 var uniqueInOrder=function(iterable){
-  if(typeof iterable == "string") {
   let array = [];
   let result = [];
+  if(typeof iterable == "string") {
+  
+  
   for(let f = 0; f < iterable.length; f++){
     array.push(iterable[f]);
   }
+} else {
+  array = iterable;
+}
+
+
   for (let i = 0; i < array.length; i++) {
+    //проверяем и добавляем первый элемент
     if(i === 0) {
       result.push(array[i]);
       continue;
      } else 
-    if (i === (array.length-1)){
-      if(array[i] === array[i-1]){
+    //проверяем последний элемент и выходим если он такой же как предыдущий
+     if (i === (array.length-1)){
+      if(array[i] === array[i-1]){ 
         continue;
-    } } else 
-    if (array[i] != array[i-1]) {
+    } } else
+    // если элемент не равен предыдущему - добавляем в массив result
+    if (array[i] == array[i-1]) {
       // let found = result.find((j) => j === array[i]);
       // if (found == undefined) {
       //   result.push(array[i]);
       // }
-      result.push(array[i]);
       continue;
     }
     
@@ -38,9 +47,11 @@ var uniqueInOrder=function(iterable){
     
   }
   return result;
+
 }
-}
-let num = "AAsdsaa,f";
+ 
+// let num = "AAsdsaa,f";
+let num = [1,1,1,2,2,2,2,3,4,5,5,5];
 console.log(uniqueInOrder(num));
 
 </script>
