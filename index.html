@@ -8,21 +8,39 @@
   <title>Document</title>
 </head>
 <body>
-  
 <script>
 var uniqueInOrder=function(iterable){
-  let array = iterable.split(',');
+  if(typeof iterable == "string") {
+  let array = [];
   let result = [];
+  for(let f = 0; f < iterable.length; f++){
+    array.push(iterable[f]);
+  }
   for (let i = 0; i < array.length; i++) {
-    if (array[i] == array[i++] == array[i--]) {
-     break;
-    } else {
+    if(i === 0) {
       result.push(array[i]);
+      continue;
+     } else 
+    if (i === (array.length-1)){
+      if(array[i] === array[i-1]){
+        continue;
+    } } else 
+    if (array[i] != array[i-1]) {
+      // let found = result.find((j) => j === array[i]);
+      // if (found == undefined) {
+      //   result.push(array[i]);
+      // }
+      result.push(array[i]);
+      continue;
     }
+    
+      result.push(array[i]);
+    
   }
   return result;
 }
-let num = "A,B,C,C,C,C,c, S";
+}
+let num = "AAsdsaa,f";
 console.log(uniqueInOrder(num));
 
 </script>
